@@ -19,7 +19,7 @@ describe('Login tests negativos', () => {
 
   beforeEach(() => {
     cy.fixture('loginData').as('data');
-    cloginPage.visit();
+    loginPage.visit();
   })
 
   it('Debería mostrar error con usuario incorrecto', function() {
