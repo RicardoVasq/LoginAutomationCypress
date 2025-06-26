@@ -26,18 +26,15 @@ jobs:
         run: npm ci
 
       - name: 🧪 Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --env allure=true
         continue-on-error: true
 
       - name: 📊 Generate Allure Report
         run: npx allure generate allure-results --clean -o allure-report
-      - name: 🧪 Verifica si existe allure-results
-        run: ls -la && ls -la ./allure-results || echo "⚠️ No se encontró allure-results"
 
-      - name: Copiar reporte Allure para GitHub Pages
-        run: |
-         cp -r ./allure-report/. /home/runner/actions_github_pages_1750972855098/
-         
+      - name: 🧪 Verifica si existe allure-report
+        run: ls -la ./allure-report || echo "⚠️ No se encontró allure-report"
+
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
