@@ -9,6 +9,6 @@
   },
   "invalidPassword": {
     "username": "student",
-    "password": "wrongpass"
+    "password": "wrongpas"
   }
 }
