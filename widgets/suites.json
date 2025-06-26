@@ -1,1 +1,1 @@
-{"total":0,"items":[]}
+{"total":2,"items":[{"uid":"b555086380f62ec685e63356492bca86","name":"Login tests negativos","statistic":{"failed":0,"broken":1,"skipped":1,"passed":0,"unknown":0,"total":2}},{"uid":"075049283af50e1edde2e42029a59240","name":"Login con Page Object Model","statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1}}]}
