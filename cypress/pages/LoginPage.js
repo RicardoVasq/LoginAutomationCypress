@@ -1,39 +1,23 @@
 class LoginPage {
-  visit() {
-    cy.visit('/practice-test-login/');
-  }
+  visit() { cy.visit('/practice-test-login/'); }
 
-  get usernameField() {
-    return cy.get('#username');
-  }
+  get usernameField() { return cy.get('#username');}
 
-  get passwordField() {
-    return cy.get('#password');
-  }
+  get passwordField() { return cy.get('#password'); }
 
-  get submitButton() {
-    return cy.get('#submit');
-  }
+  get submitButton() { return cy.get('#submit');}
 
-  get successMessage() {
-    return cy.contains('Logged In Successfully');
-  }
+  get successMessage() { return cy.contains('Logged In Successfully');}
 
-  get errorMessage() {
-    return cy.contains('Your username or password is invalid!');
-  }
+  get errorMessage() { return cy.contains('Your username or password is invalid!'); }
+  
+  get errorMessage() { return cy.get('#error');}
 
-  fillUsername(username) {
-    this.usernameField.type(username);
-  }
+  fillUsername(username) { this.usernameField.type(username); }
 
-  fillPassword(password) {
-    this.passwordField.type(password);
-  }
+  fillPassword(password) { this.passwordField.type(password); }
 
-  clickSubmit() {
-    this.submitButton.click();
-  }
+  clickSubmit() { this.submitButton.click();}
 
   loginUser(username, password) {
     this.fillUsername(username);
@@ -41,12 +25,10 @@ class LoginPage {
     this.clickSubmit();
   }
 
-  assertLoginSuccess() {
-    this.successMessage.should('be.visible');
-  }
+  assertLoginSuccess() { this.successMessage.should('be.visible');}
 
-  assertLoginFailure() {
-    this.errorMessage.should('be.visible');
+  assertLoginFailure(expectedText = 'Your username or password is invalid!') {
+    this.errorMessage.should('be.visible').and('contain.text', expectedText);
   }
 }
 
