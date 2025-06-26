@@ -30,6 +30,9 @@ jobs:
 
       - name: 📊 Generate Allure Report
         run: npx allure generate allure-results --clean -o allure-report
+      - name: 🧪 Verifica si existe allure-results
+        run: ls -la && ls -la ./allure-results || echo "⚠️ No se encontró allure-results"
+
 
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
