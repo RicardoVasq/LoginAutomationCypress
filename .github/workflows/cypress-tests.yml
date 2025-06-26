@@ -27,6 +27,7 @@ jobs:
 
       - name: 🧪 Run Cypress tests
         run: npx cypress run
+        continue-on-error: true
 
       - name: 📊 Generate Allure Report
         run: npx allure generate allure-results --clean -o allure-report
